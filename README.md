@@ -80,6 +80,44 @@ print(stack.pop()) # output: 1
 
 Uma lista encadeada que possui um ponteiro para outros dois outros elementos (geralmente chamados de `left` e `right`).
 
+### Como percorrer uma Árvore Binária (Traversals)
+
+1. **Preorder**: Percorre todos os nós a esquerda primeiro e adiciona os resultados a medida que percorre a árvore.
+
+```
+    5
+   /\
+  3  10
+ /   /\
+1   7  15
+
+[5, 3, 1, 10, 7, 15]
+```
+
+2. **Inorder**: Percorre todos os nós até chegar a folha mais a esquerda e vai adicionando ao resultado. Se a árvore estiver balanceada os resultados estaram ordenados
+
+```
+    5
+   /\
+  3  10
+ /   /\
+1   7  15
+
+[1, 3, 5, 7, 10, 15]
+```
+
+3. **Postorder**: Percorre todos os nós para livrar a memória da Call Stack dos métodos recursivos o mais rápido possível. O root será o último elemento a ser adicionado ao resultado.
+
+```
+    5
+   /\
+  3  10
+ /   /\
+1   7  15
+
+[1, 3, 7, 15, 10, 5]
+```
+
 ## Hashmap (Tabela Hash)
 
 É uma estrutura de dados no formato `chave` e `valor`. Nessa estrutura de dados, a complexidade média de leitura, inserção e remoção é **O(1)**.
