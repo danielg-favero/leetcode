@@ -118,6 +118,10 @@ Uma lista encadeada que possui um ponteiro para outros dois outros elementos (ge
 [1, 3, 7, 15, 10, 5]
 ```
 
+### Buscas em árvore binárias
+
+1. **Busca em profundidade (DFS)**: Percorre, à partir do root, até chegar em um nó folha
+
 ## Hashmap (Tabela Hash)
 
 É uma estrutura de dados no formato `chave` e `valor`. Nessa estrutura de dados, a complexidade média de leitura, inserção e remoção é **O(1)**.
