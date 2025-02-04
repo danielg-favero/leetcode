@@ -120,7 +120,8 @@ Uma lista encadeada que possui um ponteiro para outros dois outros elementos (ge
 
 ### Buscas em árvore binárias
 
-1. **Busca em profundidade (DFS)**: Percorre, à partir do root, até chegar em um nó folha
+1. **Busca em profundidade (DFS)**: Percorre, à partir do root, até chegar em um nó folha. Muito usado para percorrer uma árvore inteira e resolver o problema.
+2. **Busca em largura (BFS)**: Abre a procura em todos os nós da direita e esqueda, à partir do root, até chegar em todos os nós folhas (é mais fácil implementar esse algoritmo com uma estrutura de dados auxiliar).
 
 ## Hashmap (Tabela Hash)
 

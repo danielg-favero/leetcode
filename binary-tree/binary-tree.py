@@ -1,3 +1,5 @@
+from collections import deque
+
 class TreeNode:
     def __init__(self, value):
         self.value = value
@@ -67,3 +69,30 @@ class BinaryTree:
             self._postorder_traversal(node.left, result)
             self._postorder_traversal(node.right, result)
             result.append(node.value)
+
+    def bfs(self, value: int):
+        if self.root is None: return False
+
+        queue = deque()
+        queue.append(self.root)
+
+        while queue:
+            node = queue.popleft()
+
+            if node.value == value: return True
+
+            if node.left: queue.append(node.left)
+            if node.right: queue.append(node.right)
+        
+        return False
+    
+    # Mesma coisa que um Preorder Traversal
+    def dfs(self, value: int): 
+        return self._dfs(self.root, value)
+
+    def _dfs(self, node: TreeNode, value: int): 
+        if node is None: return False
+        if node.value == value: return True
+
+        if self._dfs(node.left, value): return True
+        if self._dfs(node.right, value): return True
