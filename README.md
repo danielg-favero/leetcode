@@ -287,3 +287,11 @@ def exponential_search(nums: list[int], n: int):
 
     return binary_search(nums, n, i//2, min(i, length - 1))
 ```
+
+## Grafos
+
+Uma estrutura de dados que representa a conexão entre diversos nós. Geralmente representado por meio de uma `matriz de adjacência`
+
+### Algoritmo de Dijsktra
+
+Algoritmo utilizado para calcular e construir uma árvore de caminhos mínimos dentro do grafo.
