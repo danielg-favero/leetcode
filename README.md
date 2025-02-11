@@ -76,6 +76,81 @@ print(stack.pop()) # output: 2
 print(stack.pop()) # output: 1
 ```
 
+É possível implementar uma `stack` usando um pointeiro para manipular os itens da pilha
+
+```python
+class Stack:
+    def __init__(self, max_len = 1000):
+        self.items = [0] * max_len
+        self.max_len = max_len
+        self.pointer = 0
+
+    def push(self, item):
+        self.items[self.pointer] = item
+        self.pointer += 1
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def pop(self):
+        if self.is_empty():
+            raise IndexError("Empty List")
+
+        return self.items.pop()
+
+    def peek(self):
+        if self.is_empty():
+            raise IndexError("Empty List")
+
+        return self.items[-1]
+
+    def size(self):
+        return len(self.items)
+```
+
+> Um `array` em python tem vários funcionalidades de uma `stack` padrão
+
+Também é possível implementar uma `stack` usando uma lista encadeada
+
+```python
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class Stack:
+    def __init__(self):
+        self.top = None
+        self._size = 0
+
+    def push(self, item):
+        new_node = Node(item)
+        new_node.next = self.top
+        self.top = new_node
+
+        self._size += 1
+
+    def pop(self):
+        if self.top is None:
+            raise IndexError("Empty Stack")
+
+        popped_node = self.top
+        self.top = popped_node.next
+
+        self._size -= 1
+
+        return popped_node.value
+
+    def peek(self):
+        if self.top is None:
+            raise IndexError("Empty Stack")
+
+        return self.top.value
+
+    def size(self):
+        return self._size
+```
+
 ## Binary Tree (Árvore Binária)
 
 Uma lista encadeada que possui um ponteiro para outros dois outros elementos (geralmente chamados de `left` e `right`).
@@ -295,3 +370,27 @@ Uma estrutura de dados que representa a conexão entre diversos nós. Geralmente
 ### Algoritmo de Dijsktra
 
 Algoritmo utilizado para calcular e construir uma árvore de caminhos mínimos dentro do grafo.
+
+```python
+def dijkstra(graph, start):
+    min_heap = [(0, start)] # Fila de processamento, inicialmente inicia com [(0, 'A')]
+    distances = { node: float('inf') for node in graph }
+    distances[start] = 0
+
+    while min_heap:
+        # Aqui o heap funciona como uma fila de prioridades
+        # Processando os elementos de menor valor antes
+        current_distance, current_node = heapq.heappop(min_heap)
+
+        if current_distance > distances[current_node]: continue
+
+        # Acessar todos os vizinhos
+        for neighbor, weight in graph[current_node].items():
+            distance = current_distance + weight
+
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+                heapq.heappush(min_heap, (distance, neighbor))
+
+    return distances
+```
