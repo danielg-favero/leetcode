@@ -394,3 +394,15 @@ def dijkstra(graph, start):
 
     return distances
 ```
+
+## Heap / Binary Heap / Priority Queue
+
+É uma estrutura de dados que segue uma ordenação com base em alguma regra.
+
+Os dois tipos mais comuns de `heap` são:
+
+1. **Min Heap**: Todos os items abaixo são maior, ou seja, o menor valor está no topo.
+
+1. **Max Heap**: Todos os items abaixo são menores, ou seja, o maior valor está no topo.
+
+Um `heap` é representado por uma árvore binária, **mas não precisa ser armazenada em uma árvore e sim em um `array`**. Para descobrir os elementos a esquerda na árvore usa-se `i * 2 + 1` e na direita `i * 2 + 2`
